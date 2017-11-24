@@ -1,3 +1,4 @@
 import { QueueManager } from './queue.manager';
-
-export QueueManager;
+import { QueueAbstract } from './queue.abstract';
+import { QueueManagerOptions } from './queue.manager.options';
+export  { QueueManager, QueueManagerOptions, QueueAbstract } ;

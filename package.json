@@ -7,19 +7,45 @@
   "author": "Piero Giusti <pierophp@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "build": "tsc --declaration",
-    "test": "export NODE_ENV=testing; nyc mocha -A --opts ./mocha.opts --require ts-node/register -r tsconfig-paths/register"
+    "build": "tsc",
+    "test": "nyc mocha -A --opts ./mocha.opts --require ts-node/register -r tsconfig-paths/register",
+    "test:watch": "nodemon --exec yarn test"
   },
   "devDependencies": {
+    "@types/bull": "^3.3.0",
     "@types/mocha": "^2.2.44",
     "@types/node": "^8.0.53",
     "chai": "^4.1.2",
     "mocha": "^4.0.1",
+    "nodemon": "^1.12.1",
     "nyc": "^11.3.0",
     "ts-node": "^3.3.0",
     "tsconfig-paths": "^2.4.0",
     "tslint": "^5.8.0",
     "tslint-config-airbnb": "^5.4.2",
     "typescript": "^2.6.1"
+  },
+  "dependencies": {
+    "@types/chai": "^4.0.5",
+    "bull": "^3.3.6",
+    "lodash": "^4.17.4"
+  },
+  "nyc": {
+    "include": [
+      "src/*.ts",
+      "src/**/*.ts"
+    ],
+    "exclude": [
+      "docker"
+    ],
+    "extension": [
+      ".ts"
+    ],
+    "reporter": [
+      "html",
+      "lcovonly",
+      "text-summary"
+    ],
+    "all": true
   }
 }
