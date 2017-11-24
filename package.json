@@ -1,15 +1,16 @@
 {
   "name": "node-queue-manager",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "A node queue manager",
-  "main": "dist/index.js",
+  "main": "index.js",
   "repository": "git@github.com:pierophp/node-queue-manager.git",
   "author": "Piero Giusti <pierophp@gmail.com>",
   "license": "MIT",
   "scripts": {
     "build": "tsc",
     "test": "nyc mocha -A --opts ./mocha.opts --require ts-node/register -r tsconfig-paths/register",
-    "test:watch": "nodemon --exec yarn test"
+    "test:watch": "nodemon --exec yarn test",
+    "npm:publish": "yarn build && cp package.json dist/ && cd dist/ && npm publish"
   },
   "devDependencies": {
     "@types/bull": "^3.3.0",
