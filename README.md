@@ -6,7 +6,7 @@ This project aims to make the queue management in node enviroment simpler.
 
 ## Providers
 
-At this time,the only provider available is the Bulk. The next will be AWS SQS.
+At this time, the only provider available is the [Bull](https://www.npmjs.com/package/bull). The next will be AWS SQS.
 
 
 ## Example
