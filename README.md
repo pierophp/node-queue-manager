@@ -19,16 +19,6 @@ import { QueueAbstract } from 'node-queue-manager';
 
 export class ExampleQueue extends QueueAbstract {
 
-  protected data;
-
-  public setData(data) {
-    this.data = data;
-  }
-
-  public getData() {
-    return this.data;
-  }
-
   public getName(): string {
     return 'example.queue';
   }

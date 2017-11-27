@@ -14,10 +14,16 @@ describe('QueueTest', function () {
 
   it('publish', async () => {
     const exampleQueue = new ExampleQueue();
+    exampleQueue.setData({
+      name: 'test',
+    });
     const queueResponse = await queueManager.publish(exampleQueue);
     expect(queueResponse.id).not.null;
     await queueManager.listen(exampleQueue, (queueExecutedResponse) => {
       expect(queueResponse.id).to.equal(queueExecutedResponse.id);
+      expect(JSON.stringify(queueResponse.queue.getData())).to.equal(JSON.stringify({
+        name: 'test',
+      }));
       queueManager.close();
     });
   });

@@ -40,16 +40,17 @@ export class BullJob extends JobAbstract implements JobInterface {
     const bullQueue = this.getInstance(queue.getName());
     const bullJobReponse = await bullQueue.add(queue.getData());
 
-    return new JobResponse({ id: bullJobReponse.id });
+    return new JobResponse({ id: bullJobReponse.id, queue });
   }
 
   public async listen(queue: QueueAbstract, callback?: Function): Promise<any> {
     const bullQueue = this.getInstance(queue.getName());
     return new Promise((done) => {
       bullQueue.process(queue.getConcurrency(), async (job, jobDone) => {
-        await queue.run(job.data);
+        queue.setData(job.data);
+        await queue.run();
         if (callback) {
-          callback(new JobResponse({ id: job.id }));
+          callback(new JobResponse({ id: job.id, queue }));
         }
 
         jobDone();
