@@ -1,6 +1,6 @@
 {
   "name": "node-queue-manager",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "A node queue manager",
   "main": "index.js",
   "repository": "git@github.com:pierophp/node-queue-manager.git",

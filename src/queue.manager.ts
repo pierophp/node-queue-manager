@@ -45,6 +45,10 @@ export class QueueManager {
     await this.job.listen(queue, callback);
   }
 
+  public async listenAll(queues: QueueAbstract[], callback?: Function): Promise<void> {
+    await this.job.listenAll(queues, callback);
+  }
+
   public async close(): Promise<void> {
     await this.job.close();
   }
