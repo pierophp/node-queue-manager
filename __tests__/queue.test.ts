@@ -11,6 +11,7 @@ describe('QueueTest', function () {
     },
     type: 'Bull',
   });
+
   it('publish', async () => {
     const exampleQueue = new ExampleQueue();
     const queueResponse = await queueManager.publish(exampleQueue);

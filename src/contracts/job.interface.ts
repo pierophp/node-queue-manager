@@ -6,5 +6,7 @@ export interface JobInterface {
 
   listen(queue: QueueAbstract, callback?: Function): Promise<any>;
 
+  listenAll(queue: QueueAbstract[], callback?: Function): Promise<any>;
+
   close(): Promise<any>;
 }
