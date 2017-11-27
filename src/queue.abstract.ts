@@ -1,6 +1,6 @@
 export abstract class QueueAbstract {
 
-  protected data: object = [];
+  protected data: object = {};
 
   public setData(data: object) {
     this.data = data;
