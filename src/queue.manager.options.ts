@@ -4,5 +4,5 @@ export class QueueManagerOptions {
     host: string,
   };
 
-  public type: 'Bull';
+  public type?: 'bull' | 'sync';
 }

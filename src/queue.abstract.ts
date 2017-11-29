@@ -1,12 +1,12 @@
 export abstract class QueueAbstract {
 
-  protected data: object = {};
+  protected data: any = {};
 
-  public setData(data: object) {
+  public setData(data: any) {
     this.data = data;
   }
 
-  public getData(): object {
+  public getData(): any {
     return this.data;
   }
 

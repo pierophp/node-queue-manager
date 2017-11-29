@@ -1,15 +1,15 @@
 import { expect } from 'chai';
-import { QueueManager } from '../src/queue.manager';
-import { ExampleQueue } from './queues/example.queue';
+import { QueueManager } from '../../src/queue.manager';
+import { ExampleQueue } from '../queues/example.queue';
 
-describe('QueueTest', function () {
+describe('BullJobTest', function () {
   this.timeout(5000);
 
   const queueManager = new QueueManager({
     redis: {
       host: 'redis',
     },
-    type: 'Bull',
+    type: 'bull',
   });
 
   it('publish', async () => {

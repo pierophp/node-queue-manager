@@ -3,10 +3,12 @@ import { JobInterface } from './contracts/job.interface';
 import { QueueAbstract } from './queue.abstract';
 import { QueueManagerOptions } from './queue.manager.options';
 import { BullJob } from './jobs/bull.job';
+import { SyncJob } from './jobs/sync.job';
 import { JobResponse } from './jobs/job.response';
 
 const jobTypes = {
-  BullJob,
+  bull: BullJob,
+  sync: SyncJob,
 };
 
 export class QueueManager {
@@ -16,7 +18,7 @@ export class QueueManager {
     redis: {
       port: 6379,
     },
-    type: 'Bull',
+    type: 'bull',
   };
 
   constructor(queueManagerOptions?: QueueManagerOptions) {
