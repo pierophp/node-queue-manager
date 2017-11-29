@@ -30,7 +30,7 @@ export class QueueManager {
 
     this.options = queueManagerOptions;
 
-    const jobName: string = `${queueManagerOptions.type}Job`;
+    const jobName: string = queueManagerOptions.type || this.defaultOptions.type;
 
     this.job = new jobTypes[jobName](queueManagerOptions);
   }

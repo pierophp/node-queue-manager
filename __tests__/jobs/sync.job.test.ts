@@ -14,7 +14,7 @@ describe('SyncJobTest', function () {
     exampleQueue.setData({
       name: 'test',
     });
-    const queueResponse = await queueManager.publish(exampleQueue);
+    const queueResponse: any = await queueManager.publish(exampleQueue);
     expect(queueResponse.queue.queueExecuted).not.null;
 
   });
